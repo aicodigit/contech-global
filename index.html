@@ -1117,5 +1117,42 @@
             calcular(); // Cálculo inicial al montar el DOM
         });
     </script>
+
+    <!-- Bloqueo de seguridad para evitar copia de código y clic derecho -->
+    <script>
+        // 1. Bloquear el clic derecho
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // 2. Bloquear atajos de teclado de inspección (F12, Ctrl+Shift+I, etc.)
+        document.addEventListener('keydown', function(e) {
+            // Bloquear F12
+            if (e.key === "F12") {
+                e.preventDefault();
+                return false;
+            }
+            // Bloquear Ctrl+Shift+I o Cmd+Option+I (Mac)
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
+                e.preventDefault();
+                return false;
+            }
+            // Bloquear Ctrl+Shift+J o Cmd+Option+J (Consola)
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'J' || e.key === 'j')) {
+                e.preventDefault();
+                return false;
+            }
+            // Bloquear Ctrl+U o Cmd+U (Ver código fuente)
+            if ((e.ctrlKey || e.metaKey) && (e.key === 'U' || e.key === 'u')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // 3. Bloquear la selección de texto en toda la página
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+        });
+    </script>
 </body>
 </html>
