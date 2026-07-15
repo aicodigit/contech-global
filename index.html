@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTECH GLOBAL | Infraestructura Inteligente y Sostenible</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Variables de Diseño Tecnológico y Sustentable */
+        :root {
+            --bg-primary: #0a0f1d;
+            --bg-secondary: #111827;
+            --accent-green: #00ff88;
+            --accent-blue: #00d2ff;
+            --text-main: #f3f4f6;
+            --text-muted: #b3b9c4; /* Optimización de accesibilidad y contraste */
+            --border-color: rgba(255, 255, 255, 0.08);
+            --card-hover: rgba(0, 255, 136, 0.03);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, .brand {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Navegación */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(10, 15, 29, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 2rem;
+            position: relative;
+        }
+
+        .brand {
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, var(--text-main) 30%, var(--accent-green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand span {
+            color: var(--accent-green);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-green);
+        }
+
+        /* Menú Móvil - Botón Hamburguesa */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 1100;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--text-main);
+            transition: all 0.3s ease;
+        }
+
+        /* Animaciones para la transformación del botón hamburguesa */
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .btn-cta {
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+            color: var(--bg-primary);
+            padding: 0.6rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem 2rem;
+            background: radial-gradient(circle at 80% 20%, rgba(0, 210, 255, 0.08), transparent 40%),
+                        radial-gradient(circle at 10% 80%, rgba(0, 255, 136, 0.05), transparent 40%);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero-content h1 span {
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .tech-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            color: var(--accent-green);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Abstract Tech Element */
+        .hero-visual {
+            position: relative;
+            height: 400px;
+            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: inset 0 0 40px rgba(0, 210, 255, 0.05);
+        }
+
+        .grid-animation {
+            width: 80%;
+            height: 80%;
+            border: 1px dashed rgba(0, 255, 136, 0.15);
+            border-radius: 16px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(0,255,136,0.02) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0,255,136,0.02) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .grid-animation::before {
+            content: '';
+            width: 100px;
+            height: 100px;
+            border: 2px solid var(--accent-green);
+            border-radius: 50%;
+            position: absolute;
+            animation: pulse 3s infinite;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+        }
+
+        /* Secciones */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Cuadrícula de Servicios */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            border-radius: 20px;
+            transition: border-color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent-green);
+            transform: translateY(-5px);
+            background-color: var(--card-hover);
+        }
+
+        .icon-wrapper {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+            color: var(--accent-green);
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Finanzas & Co-inversión Highlight */
+        .fintech-banner {
+            background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(10, 15, 29, 0.9)),
+                        radial-gradient(circle at top left, rgba(0, 255, 136, 0.1), transparent 50%);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .fintech-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .fintech-content p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .fintech-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .stat-item {
+            border-left: 2px solid var(--accent-blue);
+            padding-left: 1.5rem;
+        }
+
+        .stat-item h4 {
+            font-size: 1.8rem;
+            color: var(--accent-blue);
+        }
+
+        .stat-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Nueva calculadora optimizada */
+        .calc-wrapper {
+            background: rgba(255,255,255,0.02); 
+            border: 1px solid var(--border-color); 
+            padding: 2.5rem; 
+            border-radius: 20px; 
+            margin-top: 3rem; 
+            grid-column: 1 / -1;
+            z-index: 10;
+        }
+
+        .calc-inputs {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 1.5rem; 
+            margin-bottom: 1.5rem;
+        }
+
+        .calc-input-group label {
+            display:block; 
+            font-size: 0.85rem; 
+            margin-bottom: 0.5rem; 
+            color: var(--text-main);
+        }
+
+        .calc-field {
+            width: 100%; 
+            background: var(--bg-primary); 
+            border: 1px solid var(--border-color); 
+            color: var(--text-main); 
+            padding: 0.75rem; 
+            border-radius: 8px; 
+            font-family: 'Space Grotesk';
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .calc-field:focus {
+            border-color: var(--accent-green);
+        }
+
+        /* Estilos específicos para los sliders */
+        .slider-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .slider-wrapper input[type="range"] {
+            cursor: pointer;
+        }
+
+        .slider-val {
+            font-family: 'Space Grotesk';
+            color: var(--accent-green);
+            font-weight: 600;
+            min-width: 70px;
+            text-align: right;
+        }
+
+        .calc-results {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 1.5rem; 
+            border-top: 1px solid var(--border-color); 
+            padding-top: 1.5rem;
+        }
+
+        .calc-result-item {
+            background: rgba(255, 255, 255, 0.01);
+            padding: 1.25rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .calc-result-item h5 {
+            font-size: 1.8rem; 
+            font-family: 'Space Grotesk';
+            margin-top: 0.25rem;
+        }
+
+        .equivalent-box {
+            grid-column: 1 / -1;
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px dashed var(--accent-green);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Sección de Contacto */
+        .contact-section {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0.85rem 1rem;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color 0.3s, background-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-green);
+        }
+
+        /* Destello interactivo para indicar vinculación exitosa */
+        .form-control-highlight {
+            background-color: rgba(0, 255, 136, 0.08) !important;
+            border-color: var(--accent-green) !important;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.25);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 4rem 2rem 2rem 2rem;
+            background-color: var(--bg-primary);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-green);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Animaciones */
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(0.9); opacity: 0.3; }
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .nav-container {
+                padding: 1rem 1.5rem;
+            }
+
+            /* Habilitar botón hamburguesa */
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            /* Estilo móvil para el menú colapsable */
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(10, 15, 29, 0.98);
+                border-bottom: 1px solid var(--border-color);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease-in-out;
+            }
+
+            nav.open {
+                max-height: 300px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                gap: 1.5rem;
+            }
+
+            .nav-container .btn-cta {
+                display: none; /* Ocultar en la cabecera móvil para mantener limpio el diseño */
+            }
+
+            .hero-container, .fintech-banner, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .hero-visual {
+                height: 300px;
+            }
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            .fintech-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <header>
+        <div class="nav-container">
+            <div class="brand">CONTECH<span>GLOBAL</span></div>
+            
+            <!-- Botón Hamburguesa para Móvil -->
+            <button class="mobile-menu-btn" aria-label="Abrir menú" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="navMenu">
+                <ul>
+                    <li><a href="#servicios">Especialidades</a></li>
+                    <li><a href="#finanzas">Inversión</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <a href="#contacto" class="btn-cta">Iniciar Proyecto</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="tech-badge">Ingeniería Regenerativa & Proptech</div>
+                <h1>Construimos el futuro con <span>infraestructura inteligente</span></h1>
+                <p>Fusionamos ingeniería civil de vanguardia, materiales avanzados capaces de autorrepararse y ecosistemas digitales automatizados para crear la infraestructura descarbonizada del mañana.</p>
+                <a href="#servicios" class="btn-cta" style="padding: 1rem 2rem; font-size: 1rem;">Explorar Tecnologías</a>
+            </div>
+            <div class="hero-visual">
+                <div class="grid-animation">
+                    <span style="color: var(--text-muted); font-size: 0.9rem; font-family: 'Space Grotesk'; letter-spacing: 2px;">BIM INTERACTIVE SYSTEM</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Basados en el Objeto Social -->
+    <section id="servicios">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Líneas de Especialidad</h2>
+                <p>Estructura de capacidades tecnológicas e ingeniería de última generación alineadas con los más altos estándares globales.</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Tarjeta 1: Infraestructura Avanzada -->
+                <div class="service-card" id="infraestructura">
+                    <div class="icon-wrapper">A</div>
+                    <h3>Ingeniería y Edificación Avanzada</h3>
+                    <p>Diseño y construcción de rascacielos, naves industriales AAA y complejos logísticos complejos. Implementación de arquitectura bioclimática y certificaciones sustentables globales.</p>
+                    <div class="tag-list">
+                        <span class="tag">LEED</span>
+                        <span class="tag">BREEAM</span>
+                        <span class="tag">Estructuras Complejas</span>
+                        <span class="tag">Passivhaus</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Contech -->
+                <div class="service-card" id="tecnologia">
+                    <div class="icon-wrapper">B</div>
+                    <h3>Tecnologías Aplicadas (Contech)</h3>
+                    <p>Optimización y modelado de activos a través de Inteligencia Artificial, Big Data y Gemelos Digitales interconectados. Supervisión avanzada con Realidad Virtual y escaneo LiDAR.</p>
+                    <div class="tag-list">
+                        <span class="tag">AI & Big Data</span>
+                        <span class="tag">BIM / VDC</span>
+                        <span class="tag">Digital Twins</span>
+                        <span class="tag">Drones LiDAR</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3: Materiales Inteligentes -->
+                <div class="service-card" id="materiales">
+                    <div class="icon-wrapper">C</div>
+                    <h3>Ciencia de Materiales Sostenibles</h3>
+                    <p>Desarrollo y aplicación de bioconcreto autorreparable y concretos ecológicos que capturan carbono, aislando la temperatura y reduciendo drásticamente la huella ecológica.</p>
+                    <div class="tag-list">
+                        <span class="tag">Bioconcreto</span>
+                        <span class="tag">Captura de CO₂</span>
+                        <span class="tag">Aislamiento Pasivo</span>
+                        <span class="tag">Importación</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 4: Transición Energética -->
+                <div class="service-card">
+                    <div class="icon-wrapper">D</div>
+                    <h3>Infraestructura Energética</h3>
+                    <p>Micro-redes descentralizadas para la autogeneración de energía limpia y sistemas de automatización inteligentes que gestionan de forma dinámica los recursos de cada edificación.</p>
+                    <div class="tag-list">
+                        <span class="tag">BEMS</span>
+                        <span class="tag">Solar & Geotermia</span>
+                        <span class="tag">Baterías Inteligentes</span>
+                        <span class="tag">Smart Cities</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Fintech / Co-inversión -->
+    <section id="finanzas" style="background-color: rgba(255, 255, 255, 0.01); border-top: 1px solid var(--border-color);">
+        <div class="section-container">
+            <div class="fintech-banner">
+                <div class="fintech-content">
+                    <div class="tech-badge" style="background: rgba(0, 210, 255, 0.1); border-color: rgba(0, 210, 255, 0.2); color: var(--accent-blue);">Proptech Financiero</div>
+                    <h3>Vehículos de Inversión y Sindicación de Capital</h3>
+                    <p>Estructuramos esquemas privados de co-inversión y vinculamos capital mediante metodologías de financiamiento colectivo para fonear proyectos de gran escala sin depender de los esquemas bancarios tradicionales.</p>
+                    <a href="#contacto" class="btn-cta" style="background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));">Saber más sobre Co-inversión</a>
+                </div>
+                <div class="fintech-stats">
+                    <div class="stat-item">
+                        <h4>MIPYME S.A.S.</h4>
+                        <p>Estructura jurídica ágil y eficiente para la canalización de capital semilla.</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>CROWDFUNDING</h4>
+                        <p>Alianzas con plataformas autorizadas para levantamiento de recursos.</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>0% NOTARIO</h4>
+                        <p>En fase inicial, optimizando el uso de capital para mayor rentabilidad.</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>ESG COMPLIANCE</h4>
+                        <p>Proyectos alineados con las normas internacionales de sustentabilidad.</p>
+                    </div>
+                </div>
+
+                <!-- Calculadora Dinámica e Interactiva -->
+                <div class="calc-wrapper">
+                    <h4 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--accent-green);">Simulador de Eficiencia Energética & Retorno CAPEX</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">Ajusta las variables de tu desarrollo inmobiliario para proyectar el ahorro neto, el retorno de inversión y la descarbonización anual.</p>
+                    
+                    <div class="calc-inputs">
+                        <div class="calc-input-group">
+                            <label for="calc-m2">Superficie de Edificación:</label>
+                            <div class="slider-wrapper">
+                                <input type="range" id="calc-m2" min="1000" max="50000" step="500" value="10000" style="flex: 1; accent-color: var(--accent-green);">
+                                <span class="slider-val" id="lbl-m2">10,000 m²</span>
+                            </div>
+                        </div>
+                        <div class="calc-input-group">
+                            <label for="calc-tipo">Uso Predominante:</label>
+                            <select id="calc-tipo" class="calc-field">
+                                <option value="industrial">Logístico / Industrial AAA</option>
+                                <option value="comercial" selected>Corporativo / Usos Mixtos</option>
+                                <option value="residencial">Residencial Inteligente</option>
+                            </select>
+                        </div>
+                        <div class="calc-input-group">
+                            <label for="calc-tarifa">Costo Eléctrico Promedio ($ MXN/kWh):</label>
+                            <div class="slider-wrapper">
+                                <input type="range" id="calc-tarifa" min="1.50" max="6.00" step="0.25" value="3.50" style="flex: 1; accent-color: var(--accent-green);">
+                                <span class="slider-val" id="lbl-tarifa">$3.50</span>
+                            </div>
+                        </div>
+                        <div class="calc-input-group">
+                            <label for="calc-inmotica">Nivel de Control Inmótico (BEMS):</label>
+                            <select id="calc-inmotica" class="calc-field">
+                                <option value="basica">Básico (Monitoreo Pasivo)</option>
+                                <option value="intermedia" selected>Avanzado (Control Centralizado)</option>
+                                <option value="ia">Predictivo (Inteligencia Artificial)</option>
+                            </select>
+                        </div>
+
+                        <!-- Beneficios Fiscales y Financiamiento ESG -->
+                        <div class="calc-input-group" style="grid-column: 1 / -1; display: flex; align-items: center; gap: 12px; margin-top: 1rem; background: rgba(0, 210, 255, 0.05); padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid rgba(0, 210, 255, 0.15);">
+                            <input type="checkbox" id="calc-esg" style="width: 18px; height: 18px; accent-color: var(--accent-blue); cursor: pointer;">
+                            <label for="calc-esg" style="margin-bottom: 0; cursor: pointer; font-size: 0.9rem; color: var(--text-main);">
+                                <strong>Activar Estímulos Fiscales y Financiamiento Verde (LISR Art. 34)</strong>
+                                <span style="display: block; font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">Aplica depreciación acelerada del 100% el primer año (ISR 30%) y tasa de interés preferencial ESG.</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="calc-results">
+                        <div class="calc-result-item">
+                            <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Ahorro Energético</span>
+                            <h5 id="res-energia" style="color: var(--accent-blue);">-- MWh/año</h5>
+                        </div>
+                        <div class="calc-result-item">
+                            <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Evitación de CO₂</span>
+                            <h5 id="res-co2" style="color: var(--accent-green);">-- Ton/año</h5>
+                        </div>
+                        <div class="calc-result-item">
+                            <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Ahorro Económico Estimado</span>
+                            <h5 id="res-ahorro-mxn" style="color: var(--accent-blue);">$ -- MXN/año</h5>
+                        </div>
+                        <div class="calc-result-item">
+                            <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Payback (Retorno CAPEX)</span>
+                            <h5 id="res-roi" style="color: #ffd700;">-- años</h5>
+                        </div>
+                        <div class="calc-result-item" id="card-fiscal" style="display: none; background: rgba(0, 210, 255, 0.03); border: 1px solid rgba(0, 210, 255, 0.2); grid-column: span 1;">
+                            <span style="font-size: 0.8rem; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 1px;">Ahorro Fiscal Neto (Año 1)</span>
+                            <h5 id="res-ahorro-fiscal" style="color: var(--accent-blue);">$ -- MXN</h5>
+                        </div>
+                        <div class="equivalent-box" id="res-equivalencia">
+                            🍃 Tu proyecto equivale a plantar aproximadamente <strong>-- árboles</strong> y mantenerlos durante un año.
+                        </div>
+                        <div style="grid-column: 1 / -1; text-align: center; margin-top: 1rem;">
+                            <button id="btn-export-quote" class="btn-cta" style="width: auto; padding: 0.8rem 2rem;">Vincular Datos a Cotización</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="contact-section">
+        <div class="section-container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="tech-badge">Contacto Global</div>
+                    <h3>Iniciemos la transformación</h3>
+                    <p>Déjanos tus datos o las especificaciones preliminares de tu desarrollo inmobiliario o de infraestructura para agendar una consultoría técnica especializada.</p>
+                    <div style="margin-top: 2rem;">
+                        <h5 style="color: var(--accent-green); margin-bottom: 0.5rem;">Correo de Proyectos</h5>
+                        <a href="mailto:conderechoshumanos@gmail.com" style="color: var(--text-main); text-decoration: none;">conderechoshumanos@gmail.com</a>
+                    </div>
+                </div>
+                <div style="background: var(--bg-primary); border: 1px solid var(--border-color); padding: 3rem; border-radius: 20px;">
+                    <form onsubmit="event.preventDefault(); alert('¡Solicitud enviada con éxito! Nos comunicaremos en breve.');">
+                        <div class="form-group">
+                            <label>Nombre Completo / Razón Social</label>
+                            <input type="text" class="form-control" required placeholder="Ej. Desarrollos del Pacífico S.A.">
+                        </div>
+                        <div class="form-group">
+                            <label>Correo Electrónico</label>
+                            <input type="email" class="form-control" required placeholder="nombre@correo.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Especificaciones de tu proyecto</label>
+                            <textarea id="contact-project-details" class="form-control" rows="5" style="resize: none;" placeholder="Ubicación, tipo de edificación o metros cuadrados estimados..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-cta" style="width: 100%; padding: 1rem;">Enviar Solicitud Técnica</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="brand" style="margin-bottom: 1.5rem;">CONTECH<span>GLOBAL</span></div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 300px;">Habilitando la transformación digital y sustentable de la infraestructura global.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Empresa</h4>
+                <ul>
+                    <li><a href="#servicios">Especialidades</a></li>
+                    <li><a href="#finanzas">Modelos de Inversión</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Aviso de Privacidad</a></li>
+                    <li><a href="#">Cumplimiento Regulatorio</a></li>
+                    <li><a href="#">Términos de Servicio</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Oficina de Proyectos - Jalisco, México</p>
+                <a href="mailto:conderechoshumanos@gmail.com" style="color: var(--accent-green); text-decoration: none; font-size: 0.9rem;">conderechoshumanos@gmail.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CONTECH GLOBAL S.A.S. Todos los derechos reservados.</p>
+            <p>Hecho con tecnología sustentable.</p>
+        </div>
+    </footer>
+
+    <!-- Lógica de Negocio Extendida, Parametrizada y Dinámica -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // --- MENU MÓVIL OPTIMIZADO ---
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navMenu = document.getElementById('navMenu');
+            const navLinks = document.querySelectorAll('nav a');
+
+            if (mobileMenuBtn && navMenu) {
+                // Alternar clase al hacer click en el botón hamburguesa
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenuBtn.classList.toggle('active');
+                    navMenu.classList.toggle('open');
+                });
+
+                // Cerrar el menú al dar clic en cualquiera de los enlaces
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenuBtn.classList.remove('active');
+                        navMenu.classList.remove('open');
+                    });
+                });
+            }
+
+            // --- CALCULADORA INTERACTIVA ---
+            // Sliders e Inputs de entrada
+            const m2Range = document.getElementById('calc-m2');
+            const lblM2 = document.getElementById('lbl-m2');
+            
+            const tipoSelect = document.getElementById('calc-tipo');
+            
+            const tarifaRange = document.getElementById('calc-tarifa');
+            const lblTarifa = document.getElementById('lbl-tarifa');
+            
+            const inmoticaSelect = document.getElementById('calc-inmotica');
+            const esgCheckbox = document.getElementById('calc-esg');
+
+            // Elementos de salida
+            const resEnergia = document.getElementById('res-energia');
+            const resCo2 = document.getElementById('res-co2');
+            const resAhorroMxn = document.getElementById('res-ahorro-mxn');
+            const resRoi = document.getElementById('res-roi');
+            const resEquivalencia = document.getElementById('res-equivalencia');
+            const btnExportQuote = document.getElementById('btn-export-quote');
+            const txtAreaContacto = document.getElementById('contact-project-details');
+
+            function calcular() {
+                // Obtener valores actuales de los inputs
+                const m2 = parseFloat(m2Range.value) || 0;
+                const tipo = tipoSelect.value;
+                const tarifa = parseFloat(tarifaRange.value) || 0;
+                const inmotica = inmoticaSelect.value;
+                const aplicarESG = esgCheckbox.checked;
+
+                // Actualizar etiquetas en vivo
+                lblM2.textContent = `${m2.toLocaleString('es-MX')} m²`;
+                lblTarifa.textContent = `$${tarifa.toFixed(2)}`;
+
+                // 1. Factores por tipo de desarrollo (kWh ahorrados y CO2 mitigado por metro cuadrado al año)
+                let factorEnergiaBase = 0.12; 
+                let factorCo2Base = 0.05;     
+                let costoTecnoPorM2 = 450; // Costo estimado de integración tecnológica en MXN/m²
+
+                if (tipo === 'industrial') {
+                    factorEnergiaBase = 0.08;
+                    factorCo2Base = 0.03;
+                    costoTecnoPorM2 = 320;
+                } else if (tipo === 'residencial') {
+                    factorEnergiaBase = 0.15;
+                    factorCo2Base = 0.07;
+                    costoTecnoPorM2 = 580;
+                }
+
+                // 2. Modulador de eficiencia por el nivel de automatización (BEMS)
+                let multiplicadorEficiencia = 1.0;
+                if (inmotica === 'basica') {
+                    multiplicadorEficiencia = 0.85; 
+                } else if (inmotica === 'ia') {
+                    multiplicadorEficiencia = 1.30; // +30% de optimización usando IA predictiva
+                    costoTecnoPorM2 *= 1.15; // Incremento moderado en CAPEX por desarrollo de IA
+                }
+
+                // 3. Cálculos de ahorro
+                const energiaAhorrada = m2 * factorEnergiaBase * multiplicadorEficiencia; // En MWh/año
+                const co2Evitado = m2 * factorCo2Base * multiplicadorEficiencia; // En Toneladas/año
+                const arbolesEquivalentes = Math.round(co2Evitado * 6); // Cada árbol maduro absorbe ~167kg CO2 al año
+
+                // 4. Cálculos comerciales y financieros
+                const energiaKwh = energiaAhorrada * 1000; 
+                const ahorroAnualMxn = energiaKwh * tarifa; 
+
+                // Definimos un costo operativo/mantenimiento (OPEX) del 15% sobre el ahorro para mantener el sistema optimizado
+                const costoOpexAnual = ahorroAnualMxn * 0.15;
+                const ahorroNetoReal = ahorroAnualMxn - costoOpexAnual;
+
+                // El CAPEX base tiene un costo mínimo de instalación (piso financiero)
+                const costoInstalacionFijo = 150000; 
+                const capexEstimado = (m2 * costoTecnoPorM2) + costoInstalacionFijo;
+
+                // --- ESTÍMULOS FISCALES LISR ART. 34 ---
+                let ahorroFiscalAnual = 0;
+                let factorFinanciamientoVerde = 1.0; // 100% del CAPEX si no hay incentivos
+                const cardFiscal = document.getElementById('card-fiscal');
+
+                if (aplicarESG) {
+                    // Depreciación del 100% en el año 1. Beneficio de flujo = CAPEX * 30% (tasa corporativa de ISR en México)
+                    ahorroFiscalAnual = capexEstimado * 0.30;
+                    
+                    // Simulación de financiamiento verde preferencial (baja el peso del CAPEX financiero real un 10% adicional)
+                    factorFinanciamientoVerde = 0.90; 
+                    
+                    // Mostrar tarjeta de ahorro fiscal
+                    cardFiscal.style.display = 'block';
+                    document.getElementById('res-ahorro-fiscal').textContent = `$${Math.round(ahorroFiscalAnual).toLocaleString('es-MX')} MXN`;
+                } else {
+                    // Ocultar tarjeta si el switch está apagado
+                    cardFiscal.style.display = 'none';
+                }
+
+                // Cálculo del Payback dinámico basado en el flujo de caja neto real
+                // Si el estímulo ESG está activo, restamos el beneficio fiscal inmediato (flujo del Año 1) del CAPEX a amortizar
+                const capexNetoAmortizar = (capexEstimado * factorFinanciamientoVerde) - ahorroFiscalAnual;
+                let roiAnos = ahorroNetoReal > 0 ? (capexNetoAmortizar / ahorroNetoReal) : 0;
+
+                // Ajuste de curva natural para mantener realismo financiero
+                const limiteInferior = aplicarESG ? 1.5 : 2.2; // Si hay incentivos fiscales, el retorno real puede caer con seguridad hasta 1.5 años
+                if (roiAnos < limiteInferior) {
+                    roiAnos = limiteInferior + (roiAnos * 0.1); 
+                }
+                // -------------------------------------------------------------
+
+                // 5. Renderizar resultados en la interfaz
+                resEnergia.textContent = `${energiaAhorrada.toLocaleString('es-MX', {maximumFractionDigits: 1})} MWh/año`;
+                resCo2.textContent = `${co2Evitado.toLocaleString('es-MX', {maximumFractionDigits: 1})} Ton/año`;
+                resAhorroMxn.textContent = `$${Math.round(ahorroNetoReal).toLocaleString('es-MX')} MXN/año`;
+                resRoi.textContent = `${roiAnos.toFixed(1)} años`;
+                resEquivalencia.innerHTML = `🍃 Tu proyecto equivale a plantar aproximadamente <strong>${arbolesEquivalentes.toLocaleString('es-MX')} árboles</strong> y mantenerlos durante un año.`;
+            }
+
+            // Función para pre-llenar los datos de la calculadora en el formulario de contacto con feedback visual
+            function exportarACotizacion() {
+                const m2 = m2Range.value;
+                const tipoTexto = tipoSelect.options[tipoSelect.selectedIndex].text;
+                const inmoticaTexto = inmoticaSelect.options[inmoticaSelect.selectedIndex].text;
+                const energia = resEnergia.textContent;
+                const ahorro = resAhorroMxn.textContent;
+                const payback = resRoi.textContent;
+                const conESG = esgCheckbox.checked ? "SÍ (LISR Art. 34 / Tasa Verde)" : "NO";
+
+                const textoPreset = `Hola Contech Global, me interesa una cotización para un desarrollo con las siguientes características proyectadas en su simulador:\n\n- Superficie: ${parseInt(m2).toLocaleString('es-MX')} m²\n- Tipo de edificación: ${tipoTexto}\n- Grado de automatización: ${inmoticaTexto}\n- Estímulos Fiscales / Financiamiento ESG: ${conESG}\n- Ahorro Energético Proyectado: ${energia}\n- Retorno CAPEX Estimado (Payback): ${payback}\n- Beneficio Económico Neto: ${ahorro}\n\nQuedo atento a sus comentarios.`;
+                
+                txtAreaContacto.value = textoPreset;
+
+                // Hacer scroll suave hacia la sección de contacto
+                document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' });
+
+                // Feedback visual: destello de color en el campo de texto y foco automático
+                setTimeout(() => {
+                    txtAreaContacto.classList.add('form-control-highlight');
+                    txtAreaContacto.focus();
+                    
+                    // Remover el efecto de destello después de 1.2 segundos
+                    setTimeout(() => {
+                        txtAreaContacto.classList.remove('form-control-highlight');
+                    }, 1200);
+                }, 500); // Pequeña pausa para permitir que termine la animación de scroll
+            }
+
+            // Vincular listeners para actualizaciones instantáneas en tiempo real
+            m2Range.addEventListener('input', calcular);
+            tipoSelect.addEventListener('change', calcular);
+            tarifaRange.addEventListener('input', calcular);
+            inmoticaSelect.addEventListener('change', calcular);
+            esgCheckbox.addEventListener('change', calcular);
+            btnExportQuote.addEventListener('click', exportarACotizacion);
+            
+            calcular(); // Cálculo inicial al montar el DOM
+        });
+    </script>
+</body>
+</html>
