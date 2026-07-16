@@ -375,6 +375,140 @@
             color: var(--text-muted);
         }
 
+    </style>
+<div class="contenedor-carrusel-wrapper">
+<div class="hero-visual" id="hero-carousel">
+  <!-- Slide 1 -->
+<div class="carousel-slide active">
+    <img src="fotos de constructora/foto 1.png" alt="Proyecto Aurora" style="width: 100%; border-radius: 12px; height: 300px; object-fit: cover; margin-bottom: 15px;">
+    <h4>Ingeniería Regenerativa</h4>
+    <p>Diseño de infraestructura con materiales autorreparables.</p>
+</div>
+
+<!-- Slide 2 -->
+<div class="carousel-slide">
+    <img src="fotos de constructora/foto 2.png" alt="Construcción" style="width: 100%; border-radius: 12px; height: 300px; object-fit: cover; margin-bottom: 15px;">
+    <h4>Ejecución en Obra</h4>
+    <p>Detalle de acabados y supervisión de alta precisión.</p>
+</div>
+
+<!-- Slide 3 -->
+<div class="carousel-slide">
+    <img src="fotos de constructora/foto 3.png" alt="Equipo" style="width: 100%; border-radius: 12px; height: 300px; object-fit: cover; margin-bottom: 15px;">
+    <h4>Talento Humano</h4>
+    <p>Equipo técnico especializado en sitio.</p>
+</div>
+
+<!-- Slide 4 -->
+<div class="carousel-slide">
+    <img src="fotos de constructora/foto 4.png" alt="Robotica" style="width: 100%; border-radius: 12px; height: 300px; object-fit: cover; margin-bottom: 15px;">
+    <h4>Robótica Estructural</h4>
+    <p>Sistemas automatizados de soporte estructural.</p>
+</div>
+
+<!-- Slide 5 -->
+<div class="carousel-slide">
+    <img src="fotos de constructora/foto 5.png" alt="Robótica ladrillos" style="width: 100%; border-radius: 12px; height: 300px; object-fit: cover; margin-bottom: 15px;">
+    <h4>Automatización en Albañilería</h4>
+    <p>Precisión robótica en ensamblaje de muros.</p>
+</div>
+
+<!-- Slide 6 -->
+<div class="carousel-slide">
+    <img src="fotos de constructora/foto 6.png" alt="Robótica madera" style="width: 100%; border-radius: 12px; height: 300px; object-fit: cover; margin-bottom: 15px;">
+    <h4>Construcción Inteligente</h4>
+    <p>Manipulación robótica de materiales sostenibles.</p>
+</div>
+
+<!-- Slide 7 -->
+<div class="carousel-slide">
+    <img src="fotos de constructora/foto 7.png" alt="Integridad Estructural" style="width: 100%; border-radius: 12px; height: 300px; object-fit: cover; margin-bottom: 15px;">
+    <h4>Integridad Estructural</h4>
+    <p>Monitoreo en tiempo real del desempeño de edificios.</p>
+</div>
+
+<!-- Slide 8 -->
+<div class="carousel-slide">
+    <img src="fotos de constructora/foto 8.png" alt="Drones Seguridad" style="width: 100%; border-radius: 12px; height: 300px; object-fit: cover; margin-bottom: 15px;">
+    <h4>Patrullaje de Seguridad</h4>
+    <p>Vigilancia aérea con análisis estructural.</p>
+</div>
+
+<!-- Slide 9 -->
+<div class="carousel-slide">
+    <img src="fotos de constructora/foto 9.png" alt="Dron avanzado" style="width: 100%; border-radius: 12px; height: 300px; object-fit: cover; margin-bottom: 15px;">
+    <h4>Tecnología de Inspección</h4>
+    <p>Drones equipados con óptica de alta resolución.</p>
+</div>
+
+<!-- Slide 10 -->
+<div class="carousel-slide">
+    <img src="fotos de constructora/foto 10.png" alt="Drones Láser" style="width: 100%; border-radius: 12px; height: 300px; object-fit: cover; margin-bottom: 15px;">
+    <h4>Escaneo Láser</h4>
+    <p>Mapeo tridimensional para optimización de obras.</p>
+</div>
+
+<!-- Slide 11 -->
+<div class="carousel-slide">
+    <img src="fotos de constructora/foto 11.png" alt="Dron Construcción" style="width: 100%; border-radius: 12px; height: 300px; object-fit: cover; margin-bottom: 15px;">
+    <h4>Eficiencia Aérea</h4>
+    <p>Optimización de procesos constructivos mediante IA.</p>
+</div>
+
+<!-- Controles -->
+<div class="carousel-controls">
+    <button onclick="moveSlide(-1)">❮</button>
+    <button onclick="moveSlide(1)">❯</button>
+</div>
+    
+    <!-- Indicador de sección -->
+    <div class="carousel-label">Algunos de nuestros servicios</div>
+    
+    <!-- Controles -->
+    <div class="carousel-controls">
+        <button onclick="moveSlide(-1)">❮</button>
+        <button onclick="moveSlide(1)">❯</button>
+    </div>
+</div>
+</div>.  
+<style>
+   #hero-carousel { position: relative; text-align: center; padding: 20px; }
+.carousel-slide { display: none; width: 100%; animation: fadeIn 0.5s; }
+.carousel-slide.active { display: block; }
+.carousel-controls { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
+.carousel-controls button { 
+    background: rgba(255,255,255,0.05); 
+    border: 1px solid var(--border-color); 
+    color: white; 
+    cursor: pointer; 
+    padding: 8px 16px; 
+    border-radius: 4px; 
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.contenedor-carrusel-wrapper {
+    resize: both;
+    overflow: auto;
+    min-width: 300px;
+    min-height: 200px;
+    border: 1px solid var(--border-color); /* Ajustado a tu tema */
+    padding: 10px;
+    display: inline-block; /* Para que el contenedor se ajuste al contenido */
+}
+</style>
+
+<script>
+   let slideIndex = 0;
+function moveSlide(n) {
+    const slides = document.getElementsByClassName("carousel-slide");
+    // Ocultar el actual
+    slides[slideIndex].classList.remove("active");
+    // Calcular el nuevo índice
+    slideIndex = (slideIndex + n + slides.length) % slides.length;
+    // Mostrar el nuevo
+    slides[slideIndex].classList.add("active");
+}
+</script>
+<style>
         /* Nueva calculadora optimizada */
         .calc-wrapper {
             background: rgba(255,255,255,0.02); 
